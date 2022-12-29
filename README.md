@@ -11,8 +11,7 @@ Trata-se de um CRUD de Gerenciamento de Produto, onde é possível adicionar pro
 
 - Visual Studio
 	- Baixar e instalar o Visual Studio (caso não possuir, recomendado o 2022).
-	- Baixar o projeto.
-	- Extrair o projeto e abri-lo no Visual Studio.
+	- Clonar o projeto.
 	- Em "appsettings.json" atualizar os valores da config com os dados do seu banco de dados SQL Server (Server, User Id, Password).
 	- Abrir Tools > NuGet Package Manager > Package Manager Console.
   - Remover a pasta "Migrations" do projeto. Está em ProductManagement.Infra.
