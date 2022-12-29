@@ -9,7 +9,7 @@ namespace ProductManagement.Infra.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {            
-            optionsBuilder.UseSqlServer("Server=Intelinote01\\SQLEXPRESS;DataBase=ProductManagementDB;TrustServerCertificate=True;User Id=sa;Password=Fonsec@2309");
+            optionsBuilder.UseSqlServer("Server=MyServer\\SQLEXPRESS;DataBase=ProductManagementDB;TrustServerCertificate=True;User Id=sa;Password=MyPassword");
         }
 
         public DbSet<ProductModel> Products { get; set; }
