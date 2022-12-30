@@ -4,29 +4,29 @@ namespace ProductManagement.Domain.Validators
 {
     public static class Validator
     {
-        public static string ValidateFields(ProductModel input)
+        public static string ValidateFields(ProductModel productModel)
         {
-            if (InvalidDescription(input.Description))
+            if (InvalidDescription(productModel.Description))
             {
                 return "O campo Description (descrição) é obrigatório";
             }
 
-            if (InvalidStatus(input.Status))
+            if (InvalidStatus(productModel.Status))
             {
                 return "O campo Status deve ser ATIVO ou INATIVO";
             }
 
-            if (InvalidManufacturingDate(input.ManufacturingDate, input.ExpirationDate))
+            if (InvalidManufacturingDate(productModel.ManufacturingDate, productModel.ExpirationDate))
             {
                 return "O campo ManufacturingDate (data de fabricação) deve ser menor que o campo ExpirationDate (data de expiração)";
             }
 
-            if (InvalidSupplierDescription(input.SupplierDescription))
+            if (InvalidSupplierDescription(productModel.SupplierDescription))
             {
                 return "O campo SupplierDescription (descrição do fornecedor) é obrigatório";
             }
 
-            if (InvalidDocument(input.Document))
+            if (InvalidDocument(productModel.Document))
             {
                 return "O campo Document (CNPJ) é obrigatório";
             }
