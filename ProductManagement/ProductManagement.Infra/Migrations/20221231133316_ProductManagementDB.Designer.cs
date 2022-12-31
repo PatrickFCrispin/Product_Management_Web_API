@@ -12,7 +12,7 @@ using ProductManagement.Infra.Context;
 namespace ProductManagement.Infra.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20221228023402_ProductManagementDB")]
+    [Migration("20221231133316_ProductManagementDB")]
     partial class ProductManagementDB
     {
         /// <inheritdoc />

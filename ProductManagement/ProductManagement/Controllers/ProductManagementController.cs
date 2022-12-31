@@ -228,8 +228,8 @@ namespace ProductManagement.Controllers
         }
 
         // A remoção é lógica, então ao invés de excluir o produto, apenas o inativo na base de dados
-        [HttpPut("inactivate-product/id/{id}")] // productmanagement/inactivate-product/id/3
-        public ActionResult DeactivatedProduct(int id)
+        [HttpPut("deactivate-product/id/{id}")] // productmanagement/deactivate-product/id/3
+        public ActionResult DeactivateProduct(int id)
         {
             GenericResponse genericResponse;
 
@@ -246,7 +246,7 @@ namespace ProductManagement.Controllers
                 return NotFound(genericResponse);
             }
 
-            _productRepository.DeactivatedProduct(productModel);
+            _productRepository.DeactivateProduct(productModel);
 
             genericResponse = new GenericResponse
             {

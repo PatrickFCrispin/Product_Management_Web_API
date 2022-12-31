@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QSzOjRXTY0X2iBYeMRWg1rY12uOgi+AkQqruXo7wT8ZRt/nd3K5qE532ccqzVvRuQTPJyLMkruFM7iclBjb0sQ==",
+  "dgSpecHash": "O4l8L4wS/ZGpVXuEZ2gvTni8H2AsVnuiXS2DZDY8OhIgGBJhDK+wu6QuYcZJUs4YCCFa0pIEojr9Nmm+Wnc36Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1803",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.intelitrader.com.br:5080'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
-    }
-  ]
+  "logs": []
 }

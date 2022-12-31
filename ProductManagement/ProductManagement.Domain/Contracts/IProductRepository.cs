@@ -8,6 +8,6 @@ namespace ProductManagement.Domain.Contracts
         IEnumerable<ProductModel> GetProducts();
         void AddProduct(ProductModel productModel);
         void UpdateProduct(ProductModel productModel, ProductModel updatedProductModel);
-        void DeactivatedProduct(ProductModel productModel);
+        void DeactivateProduct(ProductModel productModel);
     }
 }

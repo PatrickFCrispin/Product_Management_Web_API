@@ -20,7 +20,7 @@ namespace ProductManagement.Tests
 
             _productModel = new ProductModel
             {
-                Description = "Produto 1",
+                Description = "Produto xyz",
                 Status = "ATIVO",
                 ManufacturingDate = DateTime.Now.AddDays(-3),
                 ExpirationDate = DateTime.Now,
@@ -105,7 +105,7 @@ namespace ProductManagement.Tests
         }
 
         [Fact]
-        public void OnDeactivatedProduct_IfProductWasNotFound_ShouldReturnNull_Otherwise_ShouldReturnStatusEqualsInativo()
+        public void OnDeactivateProduct_IfProductWasNotFound_ShouldReturnNull_Otherwise_ShouldReturnStatusEqualsInativo()
         {
             var productModel = _productRepository.GetProductById(1);
 
@@ -115,7 +115,7 @@ namespace ProductManagement.Tests
             }
             else
             {
-                _productRepository.DeactivatedProduct(productModel);
+                _productRepository.DeactivateProduct(productModel);
 
                 productModel = _productRepository.GetProductById(1);
 

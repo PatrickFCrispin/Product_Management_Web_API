@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj": {}
+    "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj": {}
   },
   "projects": {
-    "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj": {
+    "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj",
         "projectName": "ProductManagement.Domain",
-        "projectPath": "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj",
-        "packagesPath": "C:\\Users\\patrick.fonseca\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj",
+        "packagesPath": "C:\\Users\\Patri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\patrick.fonseca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Patri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,9 +27,7 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "http://nuget.intelitrader.com.br:5080": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/m3sistemas/_packaging/M3_Libs/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -66,20 +64,20 @@
         }
       }
     },
-    "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj": {
+    "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj",
         "projectName": "ProductManagement.Infra",
-        "projectPath": "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj",
-        "packagesPath": "C:\\Users\\patrick.fonseca\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\obj\\",
+        "projectPath": "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj",
+        "packagesPath": "C:\\Users\\Patri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\patrick.fonseca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Patri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -89,16 +87,14 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "http://nuget.intelitrader.com.br:5080": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/m3sistemas/_packaging/M3_Libs/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj": {
-                "projectPath": "C:\\Users\\patrick.fonseca\\Desktop\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj"
+              "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj": {
+                "projectPath": "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj"
               }
             }
           }

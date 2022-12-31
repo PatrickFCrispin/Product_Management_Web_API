@@ -63,7 +63,7 @@ namespace ProductManagement.Infra.Repositories
             catch (Exception) { throw; }
         }
 
-        public void DeactivatedProduct(ProductModel productModel)
+        public void DeactivateProduct(ProductModel productModel)
         {
             try
             {
