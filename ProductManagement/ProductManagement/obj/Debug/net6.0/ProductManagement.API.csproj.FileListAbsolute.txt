@@ -222,6 +222,7 @@ C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductMana
 C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductManagement\ProductManagement\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductManagement\ProductManagement\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductManagement\ProductManagement\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductManagement\ProductManagement\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductManagement\ProductManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductManagement\ProductManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductManagement\ProductManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
