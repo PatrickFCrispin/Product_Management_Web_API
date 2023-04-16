@@ -17,13 +17,12 @@ namespace ProductManagement.Infra.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ManufacturingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ExpirationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SupplierId = table.Column<int>(type: "int", nullable: false),
-                    SupplierDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Document = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Supplier = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Active = table.Column<bool>(type: "bit", nullable: false),
+                    RegisteredAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

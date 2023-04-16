@@ -1,30 +1,28 @@
-﻿using ProductManagement.Domain.Contracts;
-using ProductManagement.Domain.Models;
+﻿using ProductManagement.Domain.Entities;
+using ProductManagement.Domain.Interfaces;
 using ProductManagement.Infra.Context;
 
 namespace ProductManagement.Infra.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        readonly DBContext _dbContext;
+        private readonly DBContext _dbContext;
 
         public ProductRepository(DBContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public ProductModel? GetProductById(int id)
+        public ProductEntity? GetProductById(int id)
         {
             try
             {
-                var product = _dbContext.Products.FirstOrDefault(x => x.Id == id);
-
-                return product;
+                return _dbContext.Products.FirstOrDefault(x => x.Id == id);
             }
             catch (Exception) { throw; }
         }
 
-        public IEnumerable<ProductModel> GetProducts()
+        public IEnumerable<ProductEntity> GetProducts()
         {
             try
             {
@@ -33,44 +31,54 @@ namespace ProductManagement.Infra.Repositories
             catch (Exception) { throw; }
         }
 
-        public void AddProduct(ProductModel productModel)
+        public async Task AddProductAsync(ProductEntity productEntity)
         {
             try
             {
-                productModel.Status = productModel.Status.ToUpper();
+                productEntity.Active = true;
+                productEntity.RegisteredAt = productEntity.ModifiedAt = DateTime.Now;
 
-                _dbContext.Add(productModel);
-                _dbContext.SaveChanges();
+                // aqui não é assíncrono
+                _dbContext.Products.Add(productEntity);
+
+                // aqui é, pois acessa o banco de dados subjacente
+                await _dbContext.SaveChangesAsync();
             }
             catch (Exception) { throw; }
         }
 
-        public void UpdateProduct(ProductModel productModel, ProductModel updatedProductModel)
+        public async Task<bool> UpdateProductAsync(ProductEntity productEntity)
         {
             try
             {
-                productModel.Description = updatedProductModel.Description;
-                productModel.Status = updatedProductModel.Status.ToUpper();
-                productModel.ManufacturingDate = updatedProductModel.ManufacturingDate;
-                productModel.ExpirationDate = updatedProductModel.ExpirationDate;
-                productModel.SupplierId = updatedProductModel.SupplierId;
-                productModel.SupplierDescription = updatedProductModel.SupplierDescription;
-                productModel.Document = updatedProductModel.Document;
+                var product = GetProductById(productEntity.Id);
+                if (product is null) { return await Task.FromResult(false); }
 
-                _dbContext.Update(productModel);
-                _dbContext.SaveChanges();
+                product.Name = productEntity.Name;
+                product.Cost = productEntity.Cost;
+                product.Supplier = productEntity.Supplier;
+                product.Active = productEntity.Active;
+                product.ModifiedAt = DateTime.Now;
+
+                _dbContext.Products.Update(product);
+                await _dbContext.SaveChangesAsync();
+
+                return await Task.FromResult(true);
             }
             catch (Exception) { throw; }
         }
 
-        public void DeactivateProduct(ProductModel productModel)
+        public async Task<bool> RemoveProductByIdAsync(int id)
         {
             try
             {
-                productModel.Status = "INATIVO";
+                var product = GetProductById(id);
+                if (product is null) { return await Task.FromResult(false); }
 
-                _dbContext.Update(productModel);
-                _dbContext.SaveChanges();
+                _dbContext.Products.Remove(product);
+                await _dbContext.SaveChangesAsync();
+
+                return await Task.FromResult(true);
             }
             catch (Exception) { throw; }
         }

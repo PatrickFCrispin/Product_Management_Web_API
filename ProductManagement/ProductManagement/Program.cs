@@ -1,5 +1,10 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using ProductManagement.Domain.Contracts;
+using ProductManagement.API.DTOs;
+using ProductManagement.API.Services;
+using ProductManagement.API.ViewModels;
+using ProductManagement.Domain.Entities;
+using ProductManagement.Domain.Interfaces;
 using ProductManagement.Infra.Context;
 using ProductManagement.Infra.Repositories;
 
@@ -22,6 +27,16 @@ builder.Services.AddEntityFrameworkSqlServer()
         builder.Configuration.GetConnectionString("DataBase"), y => y.MigrationsAssembly("ProductManagement.API")));
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+var mapperConfiguration = new MapperConfiguration(cfg =>
+{
+    cfg.CreateMap<ProductViewModel, ProductDTO>();
+    cfg.CreateMap<ProductDTO, ProductEntity>();
+});
+IMapper mapper = mapperConfiguration.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 

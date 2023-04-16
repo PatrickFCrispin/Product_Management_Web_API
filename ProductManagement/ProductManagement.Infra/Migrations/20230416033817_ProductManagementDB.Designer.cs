@@ -12,7 +12,7 @@ using ProductManagement.Infra.Context;
 namespace ProductManagement.Infra.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20221231133316_ProductManagementDB")]
+    [Migration("20230416033817_ProductManagementDB")]
     partial class ProductManagementDB
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace ProductManagement.Infra.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ProductManagement.Domain.Models.ProductModel", b =>
+            modelBuilder.Entity("ProductManagement.Domain.Entities.ProductEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -33,30 +33,25 @@ namespace ProductManagement.Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Document")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Cost")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime>("ExpirationDate")
+                    b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ManufacturingDate")
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegisteredAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Status")
+                    b.Property<string>("Supplier")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SupplierDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SupplierId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

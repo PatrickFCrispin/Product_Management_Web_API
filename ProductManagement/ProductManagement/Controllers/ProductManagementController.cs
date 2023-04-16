@@ -1,303 +1,128 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using ProductManagement.API.DTOs;
-using ProductManagement.API.Messages;
-using ProductManagement.Domain.Contracts;
-using ProductManagement.Domain.Models;
-using ProductManagement.Domain.Responses;
-using ProductManagement.Domain.Validators;
+using ProductManagement.API.Responses;
+using ProductManagement.API.Services;
+using ProductManagement.API.ViewModels;
 
 namespace ProductManagement.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class ProductManagementController : ControllerBase
+    [Route("products")]
+    public class ProductManagementController : Controller
     {
-        readonly ILogger _logger;
-        readonly IProductRepository _productRepository;
+        private readonly IProductService _productService;
+        private readonly IMapper _mapper;
+        private readonly ILogger<ProductManagementController> _logger;
 
-        public ProductManagementController(ILogger<ProductManagementController> logger, IProductRepository productRepository)
+        public ProductManagementController(IProductService productService, IMapper mapper, ILogger<ProductManagementController> logger)
         {
+            _productService = productService;
+            _mapper = mapper;
             _logger = logger;
-            _productRepository = productRepository;
         }
 
-        [HttpGet("get-product/id/{id}")] // productmanagement/get-product/id/3
-        public ActionResult<ProductDTO> GetProductById(int id)
+        [HttpGet("{id}")] // products/3
+        public ActionResult GetProductById(int id)
         {
-            _logger.LogInformation("ProductManagement::GetProductById -> productmanagement/get-product/id/{id}", id);
-
-            var productModel = _productRepository.GetProductById(id);
-
-            if (productModel is null)
+            var response = _productService.GetProductById(id);
+            if (response.Success)
             {
-                var genericResponse = new GenericResponse
+                if (response.Data is null)
                 {
-                    Success = false,
-                    Message = Messages.ProductNotFound(id)
-                };
-
-                _logger.LogWarning("ProductManagement::GetProductById -> Success: {Success}, Message: {Message}", genericResponse.Success, genericResponse.Message);
-
-                return NotFound(genericResponse);
-            }
-
-            var response = new Response<ProductDTO>
-            {
-                Success = true,
-                Message = "Ok",
-                Value = new ProductDTO
-                {
-                    Id = productModel.Id,
-                    Description = productModel.Description,
-                    Status = productModel.Status,
-                    ManufacturingDate = productModel.ManufacturingDate,
-                    ExpirationDate = productModel.ExpirationDate,
-                    SupplierId = productModel.SupplierId,
-                    SupplierDescription = productModel.SupplierDescription,
-                    Document = productModel.Document,
+                    _logger.LogInformation("GetProductById::Info -> {message}", response.Message);
+                    return NotFound(response);
                 }
-            };
 
-            _logger.LogInformation("ProductManagement::GetProductById -> Success: {success}, Message: {Message}, Value: {value}", response.Success, response.Message, JsonConvert.SerializeObject(response.Value));
+                _logger.LogInformation(
+                    "GetProductById::Info -> Id {id}, Nome {name}, Preço {cost}, Fornecedor {supplier}, Ativo {active}, Cadastrado em {registeredAt}, Editado em {modifiedAt}",
+                    response.Data?.Id,
+                    response.Data?.Name,
+                    response.Data?.Cost,
+                    response.Data?.Supplier,
+                    response.Data?.Active,
+                    response.Data?.RegisteredAt,
+                    response.Data?.ModifiedAt);
+                return Ok(response);
+            }
 
-            return Ok(response);
+            _logger.LogError("GetProductById::Error -> {error}", response.Message);
+            return BadRequest(response);
         }
 
-        [HttpGet("get-products")] // productmanagement/get-products
-        public ActionResult<IEnumerable<ProductDTO>> GetProducts()
+        [HttpGet] // products
+        public ActionResult GetProducts()
         {
-            _logger.LogInformation("ProductManagement::GetProducts -> productmanagement/get-products");
-
-            var products = _productRepository.GetProducts();
-
-            if (!products.Any())
+            var response = _productService.GetProducts();
+            if (response.Success)
             {
-                var genericResponse = new GenericResponse
-                {
-                    Success = true,
-                    Message = Messages.ListEmpty
-                };
-
-                _logger.LogInformation("ProductManagement::GetProducts -> Success: {Success}, Message: {Message}", genericResponse.Success, genericResponse.Message);
-
-                return Ok(genericResponse);
+                _logger.LogInformation("GetProducts::Info -> Quantidade de produtos cadastrados {count}", response.Data?.ToList().Count);
+                return Ok(response);
             }
 
-            var collectionResponse = new CollectionResponse<ProductDTO>
-            {
-                Success = true,
-                Message = "Ok",
-                Values = products.Select(x => new ProductDTO
-                {
-                    Id = x.Id,
-                    Description = x.Description,
-                    Status = x.Status,
-                    ManufacturingDate = x.ManufacturingDate,
-                    ExpirationDate = x.ExpirationDate,
-                    SupplierId = x.SupplierId,
-                    SupplierDescription = x.SupplierDescription,
-                    Document = x.Document
-                })
-            };
-
-            _logger.LogInformation("ProductManagement::GetProducts -> Success: {success}, Message: {Message}, Values: {Values}", collectionResponse.Success, collectionResponse.Message, JsonConvert.SerializeObject(collectionResponse.Values));
-
-            return Ok(collectionResponse);
+            _logger.LogError("GetProducts::Error -> {error}", response.Message);
+            return BadRequest(response);
         }
 
-        [HttpGet("get-products/page/{page}")] // productmanagement/get-products/page/1  // traz 5 registros por página
-        public ActionResult<IEnumerable<ProductDTO>> GetProducts(int page)
+
+        [HttpPost] // products
+        public async Task<ActionResult> AddProductAsync([FromBody] ProductViewModel productViewModel)
         {
-            _logger.LogInformation("ProductManagement::GetProducts -> productmanagement/get-products/page/{page}", page);
-
-            var products = _productRepository.GetProducts().ToList();
-
-            if (!products.Any())
+            var validator = new ProductViewModelValidator();
+            var validationResult = validator.Validate(productViewModel);
+            if (validationResult.IsValid)
             {
-                var genericResponse = new GenericResponse
+                var productDTO = _mapper.Map<ProductDTO>(productViewModel);
+                var response = await _productService.AddProductAsync(productDTO);
+                if (response.Success)
                 {
-                    Success = true,
-                    Message = Messages.ListEmpty
-                };
+                    _logger.LogInformation("AddProductAsync::Info -> {message}", response.Message);
+                    return Ok(response);
+                }
 
-                _logger.LogInformation("ProductManagement::GetProducts -> Success: {Success}, Message: {Message}", genericResponse.Success, genericResponse.Message);
-
-                return Ok(genericResponse);
+                _logger.LogError("AddProductAsync::Error -> {error}", response.Message);
+                return BadRequest(response);
             }
 
-            CollectionPaginatedResponse<ProductDTO> collectionPaginatedResponse;
-            var limit = 5;
-            var valueToCalculateInitialColletionPositionValues = 4;
-            var initialPaginateValue = (page * limit) - valueToCalculateInitialColletionPositionValues;
-
-            if (products.Count < initialPaginateValue)
-            {
-                collectionPaginatedResponse = new CollectionPaginatedResponse<ProductDTO>
-                {
-                    Success = false,
-                    Message = Messages.ListEmptyForPage,
-                    Values = new List<ProductDTO> { },
-                    Count = products.Count,
-                    Limit = limit,
-                    Page = page,
-                    Pages = 0
-                };
-
-                _logger.LogError("ProductManagement::GetProducts -> Success: {Success}, Message: {Message}", collectionPaginatedResponse.Success, collectionPaginatedResponse.Message);
-
-                return BadRequest(collectionPaginatedResponse);
-            }
-
-            var chunkSize = 5;
-            var productsResult = products.Chunk(chunkSize).ToList();
-            var chunkArrayPosition = page - 1;
-
-            collectionPaginatedResponse = new CollectionPaginatedResponse<ProductDTO>
-            {
-                Success = true,
-                Message = "Ok",
-                Values = productsResult[chunkArrayPosition].Select(x => new ProductDTO
-                {
-                    Id = x.Id,
-                    Description = x.Description,
-                    Status = x.Status,
-                    ManufacturingDate = x.ManufacturingDate,
-                    ExpirationDate = x.ExpirationDate,
-                    SupplierId = x.SupplierId,
-                    SupplierDescription = x.SupplierDescription,
-                    Document = x.Document
-                }),
-                Count = products.Count,
-                Limit = limit,
-                Page = page,
-                Pages = productsResult.Count
-            };
-
-            _logger.LogInformation("ProductManagement::GetProducts -> Success: {Success}, Message: {Message}, Values: {Values}", collectionPaginatedResponse.Success, collectionPaginatedResponse.Message, JsonConvert.SerializeObject(collectionPaginatedResponse.Values));
-
-            return Ok(collectionPaginatedResponse);
+            var errors = ErrorResponse.ToErrorResult(validationResult.Errors);
+            return BadRequest(errors);
         }
 
-        [HttpPost("add-product")] // productmanagement/add-product
-        public ActionResult AddProduct([FromBody] ProductModel productModel)
+        [HttpPut] // products
+        public async Task<ActionResult> UpdateProductAsync([FromBody] ProductViewModel productViewModel)
         {
-            _logger.LogInformation("ProductManagement::AddProduct -> productmanagement/add-product");
-
-            GenericResponse genericResponse;
-
-            var errorMessage = Validator.ValidateFields(productModel);
-
-            if (errorMessage != string.Empty)
+            var validator = new ProductViewModelValidator();
+            var validationResult = validator.Validate(productViewModel);
+            if (validationResult.IsValid)
             {
-                genericResponse = new GenericResponse
+                var productDTO = _mapper.Map<ProductDTO>(productViewModel);
+                var response = await _productService.UpdateProductAsync(productDTO);
+                if (response.Success)
                 {
-                    Success = false,
-                    Message = errorMessage
-                };
+                    _logger.LogInformation("UpdateProductAsync::Info -> {message}", response.Message);
+                    return Ok(response);
+                }
 
-                _logger.LogError("ProductManagement::AddProduct -> Success: {Success}, Message: {Message}", genericResponse.Success, genericResponse.Message);
-
-                return BadRequest(genericResponse);
+                _logger.LogError("UpdateProductAsync::Error -> {error}", response.Message);
+                return BadRequest(response);
             }
 
-            _productRepository.AddProduct(productModel);
-
-            genericResponse = new GenericResponse
-            {
-                Success = true,
-                Message = Messages.ProductRegisteredSuccessfully
-            };
-
-            _logger.LogInformation("ProductManagement::AddProduct -> Success: {Success}, Message: {Message}", genericResponse.Success, genericResponse.Message);
-
-            return Ok(genericResponse);
+            var errors = ErrorResponse.ToErrorResult(validationResult.Errors);
+            return BadRequest(errors);
         }
 
-        [HttpPut("update-product/id/{id}")] // productmanagement/update-product/id/3
-        public ActionResult UpdateProduct(int id, [FromBody] ProductModel updatedProductModel)
+        [HttpDelete("{id}")] // products/3
+        public async Task<ActionResult> RemoveProductByIdAsync(int id)
         {
-            _logger.LogInformation("ProductManagement::UpdateProduct -> productmanagement/update-product/id/{id}", id);
-
-            GenericResponse genericResponse;
-
-            var productModel = _productRepository.GetProductById(id);
-
-            if (productModel is null)
+            var response = await _productService.RemoveProductByIdAsync(id);
+            if (response.Success)
             {
-                genericResponse = new GenericResponse
-                {
-                    Success = false,
-                    Message = Messages.ProductNotFound(id)
-                };
-
-                _logger.LogWarning("ProductManagement::UpdateProduct -> Success: {Success}, Message: {Message}", genericResponse.Success, genericResponse.Message);
-
-                return NotFound(genericResponse);
+                _logger.LogInformation("RemoveProductByIdAsync::Info -> {message}", response.Message);
+                return Ok(response);
             }
 
-            var errorMessage = Validator.ValidateFields(updatedProductModel);
-
-            if (errorMessage != string.Empty)
-            {
-                genericResponse = new GenericResponse
-                {
-                    Success = false,
-                    Message = errorMessage
-                };
-
-                _logger.LogError("ProductManagement::UpdateProduct -> Success: {Success}, Message: {Message}", genericResponse.Success, genericResponse.Message);
-
-                return BadRequest(genericResponse);
-            }
-
-            _productRepository.UpdateProduct(productModel, updatedProductModel);
-
-            genericResponse = new GenericResponse
-            {   
-                Success = true,
-                Message = Messages.ProductUpdatedSuccessfully
-            };
-
-            _logger.LogInformation("ProductManagement::UpdateProduct -> Success: {Success}, Message: {Message}", genericResponse.Success, genericResponse.Message);
-
-            return Ok(genericResponse);
-        }
-
-        // A remoção é lógica, então ao invés de excluir o produto, apenas o inativo na base de dados
-        [HttpPut("deactivate-product/id/{id}")] // productmanagement/deactivate-product/id/3
-        public ActionResult DeactivateProduct(int id)
-        {
-            _logger.LogInformation("ProductManagement::DeactivateProduct -> productmanagement/deactivate-product/id/{id}", id);
-
-            GenericResponse genericResponse;
-
-            var productModel = _productRepository.GetProductById(id);
-
-            if (productModel is null)
-            {
-                genericResponse = new GenericResponse
-                {
-                    Success = false,
-                    Message = Messages.ProductNotFound(id)
-                };
-
-                _logger.LogWarning("ProductManagement::DeactivateProduct -> Success: {Success}, Message: {Message}", genericResponse.Success, genericResponse.Message);
-
-                return NotFound(genericResponse);
-            }
-
-            _productRepository.DeactivateProduct(productModel);
-
-            genericResponse = new GenericResponse
-            {
-                Success = true,
-                Message = Messages.ProductDeactivatedSuccessfully
-            };
-
-            _logger.LogInformation("ProductManagement::DeactivateProduct -> Success: {Success}, Message: {Message}", genericResponse.Success, genericResponse.Message);
-
-            return Ok(genericResponse);
+            _logger.LogError("RemoveProductByIdAsync::Error -> {error}", response.Message);
+            return BadRequest(response);
         }
     }
 }

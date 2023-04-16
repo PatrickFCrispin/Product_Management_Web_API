@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/LQlncxPF79kAlhW+iseKvpZXHsLsxlYOLhWPQluoh4mEuTLwBecYb2Di/ta0LGZHpiHKV3VJgbIK850jaYAQw==",
+  "dgSpecHash": "DG1tfAoFjpyZ17RVFKCWeKcfu0xoeybOapiPJKs45Eyr7I/N9EQIgMwlc0+S5t8yljMSnDW+El++eeMa9xDyyA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Patri\\OneDrive\\Documentos\\Desenv\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj",
+  "projectFilePath": "C:\\Users\\Patri\\OneDrive\\Área de Trabalho\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Patri\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Patri\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
