@@ -108,15 +108,10 @@ namespace ProductManagement.API.Services
             {
                 var productEntity = _mapper.Map<ProductEntity>(productDTO);
                 response.Success = await _productRepository.UpdateProductAsync(productEntity);
-                if (response.Success)
-                {
-                    response.Message = "Produto atualizado com sucesso.";
-                }
-                else
-                {
-                    response.Message = $"Não foi possível atualizar o produto " +
-                        $"pois o mesmo não foi encontrado na base de dados.";
-                }
+
+                response.Message = response.Success ?
+                    "Produto atualizado com sucesso." :
+                    "Não foi possível atualizar o produto pois o mesmo não foi encontrado na base de dados.";
             }
             catch (Exception ex)
             {
@@ -133,15 +128,9 @@ namespace ProductManagement.API.Services
             try
             {
                 response.Success = await _productRepository.RemoveProductByIdAsync(id);
-                if (response.Success)
-                {
-                    response.Message = "Produto removido com sucesso.";
-                }
-                else
-                {
-                    response.Message = $"Não foi possível remover o produto " +
-                        $"pois o mesmo não foi encontrado na base de dados.";
-                }
+                response.Message = response.Success ?
+                    "Produto removido com sucesso." :
+                    "Não foi possível remover o produto pois o mesmo não foi encontrado na base de dados.";
             }
             catch (Exception ex)
             {
