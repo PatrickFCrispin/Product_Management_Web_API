@@ -26,8 +26,6 @@ builder.Services.AddEntityFrameworkSqlServer()
     .AddDbContext<DBContext>(x => x.UseSqlServer(
         builder.Configuration.GetConnectionString("DataBase"), y => y.MigrationsAssembly("ProductManagement.API")));
 
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-
 var mapperConfiguration = new MapperConfiguration(cfg =>
 {
     cfg.CreateMap<ProductViewModel, ProductDTO>();
@@ -37,6 +35,7 @@ IMapper mapper = mapperConfiguration.CreateMapper();
 builder.Services.AddSingleton(mapper);
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 

@@ -8,7 +8,7 @@ using ProductManagement.API.ViewModels;
 namespace ProductManagement.Controllers
 {
     [ApiController]
-    [Route("products")]
+    [Route("api/products")]
     public class ProductManagementController : Controller
     {
         private readonly IProductService _productService;
