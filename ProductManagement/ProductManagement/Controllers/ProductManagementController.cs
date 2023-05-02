@@ -22,7 +22,7 @@ namespace ProductManagement.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")] // products/3
+        [HttpGet("{id}")] // api/products/3
         public ActionResult GetProductById(int id)
         {
             var response = _productService.GetProductById(id);
@@ -50,7 +50,7 @@ namespace ProductManagement.Controllers
             return BadRequest(response);
         }
 
-        [HttpGet] // products
+        [HttpGet] // api/products
         public ActionResult GetProducts()
         {
             var response = _productService.GetProducts();
@@ -65,7 +65,7 @@ namespace ProductManagement.Controllers
         }
 
 
-        [HttpPost] // products
+        [HttpPost] // api/products
         public async Task<ActionResult> AddProductAsync([FromBody] ProductViewModel productViewModel)
         {
             var validator = new ProductViewModelValidator();
@@ -88,7 +88,7 @@ namespace ProductManagement.Controllers
             return BadRequest(errors);
         }
 
-        [HttpPut] // products
+        [HttpPut] // api/products
         public async Task<ActionResult> UpdateProductAsync([FromBody] ProductViewModel productViewModel)
         {
             var validator = new ProductViewModelValidator();
@@ -111,7 +111,7 @@ namespace ProductManagement.Controllers
             return BadRequest(errors);
         }
 
-        [HttpDelete("{id}")] // products/3
+        [HttpDelete("{id}")] // api/products/3
         public async Task<ActionResult> RemoveProductByIdAsync(int id)
         {
             var response = await _productService.RemoveProductByIdAsync(id);
