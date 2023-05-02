@@ -23,8 +23,8 @@ namespace ProductManagement.API.Services
             var response = new ServiceResponse<ProductViewModel>();
             try
             {
-                var product = _productRepository.GetProductById(id);
-                if (product is null)
+                var productEntity = _productRepository.GetProductById(id);
+                if (productEntity is null)
                 {
                     response.Message = "Produto não encontrado na base de dados.";
                 }
@@ -32,13 +32,13 @@ namespace ProductManagement.API.Services
                 {
                     response.Data = new ProductViewModel
                     {
-                        Id = product.Id,
-                        Name = product.Name,
-                        Cost = product.Cost,
-                        Supplier = product.Supplier,
-                        Active = product.Active,
-                        RegisteredAt = product.RegisteredAt,
-                        ModifiedAt = product.ModifiedAt
+                        Id = productEntity.Id,
+                        Name = productEntity.Name,
+                        Cost = productEntity.Cost,
+                        Supplier = productEntity.Supplier,
+                        Active = productEntity.Active,
+                        RegisteredAt = productEntity.RegisteredAt,
+                        ModifiedAt = productEntity.ModifiedAt
                     };
                 }
 
@@ -101,14 +101,13 @@ namespace ProductManagement.API.Services
             return response;
         }
 
-        public async Task<GenericResponse> UpdateProductAsync(ProductDTO productDTO)
+        public async Task<GenericResponse> UpdateProductAsync(int id, ProductDTO productDTO)
         {
             var response = new GenericResponse();
             try
             {
                 var productEntity = _mapper.Map<ProductEntity>(productDTO);
-                response.Success = await _productRepository.UpdateProductAsync(productEntity);
-
+                response.Success = await _productRepository.UpdateProductAsync(id, productEntity);
                 response.Message = response.Success ?
                     "Produto atualizado com sucesso." :
                     "Não foi possível atualizar o produto pois o mesmo não foi encontrado na base de dados.";

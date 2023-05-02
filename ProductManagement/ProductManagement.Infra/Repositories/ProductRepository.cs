@@ -47,13 +47,12 @@ namespace ProductManagement.Infra.Repositories
             catch (Exception) { throw; }
         }
 
-        public async Task<bool> UpdateProductAsync(ProductEntity productEntity)
+        public async Task<bool> UpdateProductAsync(int id, ProductEntity productEntity)
         {
             try
             {
-                var product = GetProductById(productEntity.Id);
-                // não preciso 'await' Task.FromResult(false) pois retorno o valor, não tem nada async aqui
-                if (product is null) { return Task.FromResult(false).Result; }
+                var product = GetProductById(id);
+                if (product is null) { return false; }
 
                 product.Name = productEntity.Name;
                 product.Cost = productEntity.Cost;
@@ -64,7 +63,7 @@ namespace ProductManagement.Infra.Repositories
                 _dbContext.Products.Update(product);
                 await _dbContext.SaveChangesAsync();
 
-                return Task.FromResult(true).Result;
+                return true;
             }
             catch (Exception) { throw; }
         }
@@ -74,12 +73,12 @@ namespace ProductManagement.Infra.Repositories
             try
             {
                 var product = GetProductById(id);
-                if (product is null) { return Task.FromResult(false).Result; }
+                if (product is null) { return false; }
 
                 _dbContext.Products.Remove(product);
                 await _dbContext.SaveChangesAsync();
 
-                return Task.FromResult(true).Result;
+                return true;
             }
             catch (Exception) { throw; }
         }

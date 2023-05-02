@@ -36,13 +36,13 @@ namespace ProductManagement.Controllers
 
                 _logger.LogInformation(
                     "GetProductById::Info -> Id {id}, Nome {name}, Preço {cost}, Fornecedor {supplier}, Ativo {active}, Cadastrado em {registeredAt}, Editado em {modifiedAt}",
-                    response.Data?.Id,
-                    response.Data?.Name,
-                    response.Data?.Cost,
-                    response.Data?.Supplier,
-                    response.Data?.Active,
-                    response.Data?.RegisteredAt,
-                    response.Data?.ModifiedAt);
+                    response.Data.Id,
+                    response.Data.Name,
+                    response.Data.Cost,
+                    response.Data.Supplier,
+                    response.Data.Active,
+                    response.Data.RegisteredAt,
+                    response.Data.ModifiedAt);
                 return Ok(response);
             }
 
@@ -56,7 +56,7 @@ namespace ProductManagement.Controllers
             var response = _productService.GetProducts();
             if (response.Success)
             {
-                _logger.LogInformation("GetProducts::Info -> Quantidade de produtos cadastrados {count}", response.Data?.ToList().Count);
+                _logger.LogInformation("GetProducts::Info -> Quantidade de produtos cadastrados {count}", response.Data.ToList().Count);
                 return Ok(response);
             }
 
@@ -88,15 +88,15 @@ namespace ProductManagement.Controllers
             return BadRequest(errors);
         }
 
-        [HttpPut] // api/products
-        public async Task<ActionResult> UpdateProductAsync([FromBody] ProductViewModel productViewModel)
+        [HttpPut("{id}")] // api/products/3
+        public async Task<ActionResult> UpdateProductAsync(int id, [FromBody] ProductViewModel productViewModel)
         {
             var validator = new ProductViewModelValidator();
             var validationResult = validator.Validate(productViewModel);
             if (validationResult.IsValid)
             {
                 var productDTO = _mapper.Map<ProductDTO>(productViewModel);
-                var response = await _productService.UpdateProductAsync(productDTO);
+                var response = await _productService.UpdateProductAsync(id, productDTO);
                 if (response.Success)
                 {
                     _logger.LogInformation("UpdateProductAsync::Info -> {message}", response.Message);

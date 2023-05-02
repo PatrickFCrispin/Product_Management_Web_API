@@ -9,7 +9,7 @@ namespace ProductManagement.API.Services
         ServiceResponse<ProductViewModel> GetProductById(int id);
         ServiceCollectionResponse<ProductViewModel> GetProducts();
         Task<GenericResponse> AddProductAsync(ProductDTO productDTO);
-        Task<GenericResponse> UpdateProductAsync(ProductDTO productDTO);
+        Task<GenericResponse> UpdateProductAsync(int id, ProductDTO productDTO);
         Task<GenericResponse> RemoveProductByIdAsync(int id);
     }
 }
