@@ -1,6 +1,6 @@
 # Product_Management_Web_API
 
-Projeto Web-API desenvolvido em .NET 6.0 com EF (Entity Framework), utilizando DDD.
+Projeto Web-API desenvolvido em .NET 6.0 com EF (Entity Framework) utilizando DDD.
 
 ## Description
 Trata-se de um CRUD de Gerenciamento de Produto, onde é possível adicionar produtos, listar os produtos da base de dados, retornar um produto, atualizar um produto e remover um produto.
