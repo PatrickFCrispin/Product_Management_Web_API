@@ -56,7 +56,7 @@ namespace ProductManagement.Controllers
             var response = _productService.GetProducts();
             if (response.Success)
             {
-                _logger.LogInformation("GetProducts::Info -> Quantidade de produtos cadastrados {count}", response.Data.ToList().Count);
+                _logger.LogInformation("GetProducts::Info -> Quantidade de produtos cadastrados {count}", response.Data!.ToList().Count);
                 return Ok(response);
             }
 

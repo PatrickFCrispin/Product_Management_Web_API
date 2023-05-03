@@ -18,9 +18,9 @@ namespace ProductManagement.API.Services
             _mapper = mapper;
         }
 
-        public ServiceResponse<ProductViewModel> GetProductById(int id)
+        public ServiceResponse<ProductViewModel?> GetProductById(int id)
         {
-            var response = new ServiceResponse<ProductViewModel>();
+            var response = new ServiceResponse<ProductViewModel?>();
             try
             {
                 var productEntity = _productRepository.GetProductById(id);
