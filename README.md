@@ -7,20 +7,20 @@ Trata-se de um CRUD de Gerenciamento de Produto, onde é possível adicionar pro
 
 ## Installation
 - SQL Server
-	- Baixar o Microsoft SQL Server Management Studio (caso não tenha).
+    - Baixar o Microsoft SQL Server Management Studio (caso não tenha).
 
 - Visual Studio
-	- Baixar e instalar o Visual Studio (recomendo o 2022).
-	- Clonar o projeto.
-	- Em "appsettings.json" atualizar os valores da config com os dados do seu banco de dados SQL Server (Server, User Id, Password).
-	- Abrir Tools > NuGet Package Manager > Package Manager Console.
-  - Remover a pasta "Migrations" do projeto. Está em ProductManagement.Infra.
-	- Entrar com o comando "add-migration ProductManagement -context ProductManagementDbContext"
-		- Espere realizar a criação do Migrations.
-	- Entrar com o comando "update-database"
-		- Espere realizar a atualização do Migrations e mapeamento com o seu SQL Server Management Studio.
-  - Se sua pasta "Migrations" foi criada em ProductManagement.API, basta recorta-la e cola-la em ProductManagemet.Infra (seguir os princípios do DDD).
-  - Recompilar o projeto e ajeitar qualquer namespace que tenha ficado errado decorrente do último copy-paste.
+    - Baixar e instalar o Visual Studio (recomendo o 2022).
+    - Clonar o projeto.
+    - Em "appsettings.json" atualizar os valores da config com os dados do seu banco de dados SQL Server (Server, User Id, Password).
+    - Abrir Tools > NuGet Package Manager > Package Manager Console.
+        - Remover a pasta "Migrations" do projeto. Está em ProductManagement.Infra.
+	    - Entrar com o comando "add-migration ProductManagement -context ProductManagementDbContext"
+	        - Espere realizar a criação do Migrations.
+	    - Entrar com o comando "update-database"
+	        - Espere realizar a atualização do Migrations e mapeamento com o seu SQL Server Management Studio.
+    - Se sua pasta "Migrations" foi criada em ProductManagement.API, basta recorta-la e cola-la em ProductManagemet.Infra (seguir os princípios do DDD).
+    - Recompilar o projeto e ajeitar qualquer namespace que tenha ficado errado decorrente do último copy-paste.
 
 ## Usage
 - Compilar o projeto no Visual Studio (Clean e Rebuild).
