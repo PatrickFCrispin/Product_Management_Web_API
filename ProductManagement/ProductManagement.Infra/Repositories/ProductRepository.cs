@@ -6,18 +6,18 @@ namespace ProductManagement.Infra.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly DBContext _dbContext;
+        private readonly ProductManagementDbContext _productManagementDbContext;
 
-        public ProductRepository(DBContext dbContext)
+        public ProductRepository(ProductManagementDbContext productManagementDbContext)
         {
-            _dbContext = dbContext;
+            _productManagementDbContext = productManagementDbContext;
         }
 
         public ProductEntity? GetProductById(int id)
         {
             try
             {
-                return _dbContext.Products.FirstOrDefault(x => x.Id == id);
+                return _productManagementDbContext.Products.FirstOrDefault(x => x.Id == id);
             }
             catch (Exception) { throw; }
         }
@@ -26,7 +26,7 @@ namespace ProductManagement.Infra.Repositories
         {
             try
             {
-                return _dbContext.Products;
+                return _productManagementDbContext.Products;
             }
             catch (Exception) { throw; }
         }
@@ -38,11 +38,9 @@ namespace ProductManagement.Infra.Repositories
                 productEntity.Active = true;
                 productEntity.RegisteredAt = productEntity.ModifiedAt = DateTime.Now;
 
-                // aqui não é assíncrono
-                _dbContext.Products.Add(productEntity);
+                _productManagementDbContext.Products.Add(productEntity);
 
-                // aqui é, pois acessa o banco de dados subjacente
-                await _dbContext.SaveChangesAsync();
+                await _productManagementDbContext.SaveChangesAsync();
             }
             catch (Exception) { throw; }
         }
@@ -55,13 +53,14 @@ namespace ProductManagement.Infra.Repositories
                 if (product is null) { return false; }
 
                 product.Name = productEntity.Name;
-                product.Cost = productEntity.Cost;
+                product.Price = productEntity.Price;
                 product.Supplier = productEntity.Supplier;
                 product.Active = productEntity.Active;
                 product.ModifiedAt = DateTime.Now;
 
-                _dbContext.Products.Update(product);
-                await _dbContext.SaveChangesAsync();
+                _productManagementDbContext.Products.Update(product);
+
+                await _productManagementDbContext.SaveChangesAsync();
 
                 return true;
             }
@@ -75,8 +74,9 @@ namespace ProductManagement.Infra.Repositories
                 var product = GetProductById(id);
                 if (product is null) { return false; }
 
-                _dbContext.Products.Remove(product);
-                await _dbContext.SaveChangesAsync();
+                _productManagementDbContext.Products.Remove(product);
+
+                await _productManagementDbContext.SaveChangesAsync();
 
                 return true;
             }

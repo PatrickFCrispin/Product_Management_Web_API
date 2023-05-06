@@ -4,7 +4,6 @@ namespace ProductManagement.API.Responses
 {
     internal class ErrorResponse
     {
-        // this method will only be called if DTO has one or more errors
         internal static Dictionary<string, string> ToErrorResult(List<ValidationFailure> input)
         {
             var index = 0;

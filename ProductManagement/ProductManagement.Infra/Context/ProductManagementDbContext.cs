@@ -3,9 +3,9 @@ using ProductManagement.Domain.Entities;
 
 namespace ProductManagement.Infra.Context
 {
-    public class DBContext : DbContext
+    public class ProductManagementDbContext : DbContext
     {
-        public DBContext(DbContextOptions<DBContext> options) : base(options) { }
+        public ProductManagementDbContext(DbContextOptions<ProductManagementDbContext> options) : base(options) { }
         public DbSet<ProductEntity> Products { get; set; }
     }
 }

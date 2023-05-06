@@ -18,8 +18,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddEntityFrameworkSqlServer()
-    .AddDbContext<DBContext>(x => x.UseSqlServer(
-        builder.Configuration.GetConnectionString("DataBase"), y => y.MigrationsAssembly("ProductManagement.API")));
+    .AddDbContext<ProductManagementDbContext>(x => x.UseSqlServer(
+        builder.Configuration.GetConnectionString("SqlServerConnectionString"), y => y.MigrationsAssembly("ProductManagement.API")));
 
 var mapperConfiguration = new MapperConfiguration(cfg =>
 {

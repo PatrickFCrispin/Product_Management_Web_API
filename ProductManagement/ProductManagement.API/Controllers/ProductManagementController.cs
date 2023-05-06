@@ -35,10 +35,10 @@ namespace ProductManagement.Controllers
                 }
 
                 _logger.LogInformation(
-                    "GetProductById::Info -> Id {id}, Nome {name}, Preço {cost}, Fornecedor {supplier}, Ativo {active}, Cadastrado em {registeredAt}, Editado em {modifiedAt}",
+                    "GetProductById::Info -> Id {id}, Nome {name}, Preço {price}, Fornecedor {supplier}, Ativo {active}, Cadastrado em {registeredAt}, Editado em {modifiedAt}",
                     response.Data.Id,
                     response.Data.Name,
-                    response.Data.Cost,
+                    response.Data.Price,
                     response.Data.Supplier,
                     response.Data.Active,
                     response.Data.RegisteredAt,

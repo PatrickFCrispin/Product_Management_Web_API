@@ -11,9 +11,9 @@ using ProductManagement.Infra.Context;
 
 namespace ProductManagement.Infra.Migrations
 {
-    [DbContext(typeof(DBContext))]
-    [Migration("20230416033817_ProductManagementDB")]
-    partial class ProductManagementDB
+    [DbContext(typeof(ProductManagementDbContext))]
+    [Migration("20230506175214_ProductManagement")]
+    partial class ProductManagement
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,15 +36,15 @@ namespace ProductManagement.Infra.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<decimal>("Cost")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("RegisteredAt")
                         .HasColumnType("datetime2");
