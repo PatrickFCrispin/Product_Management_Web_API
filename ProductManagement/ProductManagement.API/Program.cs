@@ -2,7 +2,6 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ProductManagement.API.DTOs;
 using ProductManagement.API.Services;
-using ProductManagement.API.ViewModels;
 using ProductManagement.Domain.Entities;
 using ProductManagement.Domain.Interfaces;
 using ProductManagement.Infra.Context;
@@ -23,7 +22,6 @@ builder.Services.AddEntityFrameworkSqlServer()
 
 var mapperConfiguration = new MapperConfiguration(cfg =>
 {
-    cfg.CreateMap<ProductViewModel, ProductDTO>();
     cfg.CreateMap<ProductDTO, ProductEntity>();
 });
 IMapper mapper = mapperConfiguration.CreateMapper();

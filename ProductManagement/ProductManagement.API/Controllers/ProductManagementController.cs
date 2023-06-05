@@ -1,9 +1,7 @@
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ProductManagement.API.DTOs;
 using ProductManagement.API.Responses;
 using ProductManagement.API.Services;
-using ProductManagement.API.ViewModels;
 
 namespace ProductManagement.Controllers
 {
@@ -12,13 +10,11 @@ namespace ProductManagement.Controllers
     public class ProductManagementController : Controller
     {
         private readonly IProductService _productService;
-        private readonly IMapper _mapper;
         private readonly ILogger<ProductManagementController> _logger;
 
-        public ProductManagementController(IProductService productService, IMapper mapper, ILogger<ProductManagementController> logger)
+        public ProductManagementController(IProductService productService, ILogger<ProductManagementController> logger)
         {
             _productService = productService;
-            _mapper = mapper;
             _logger = logger;
         }
 
@@ -64,15 +60,14 @@ namespace ProductManagement.Controllers
             return BadRequest(response);
         }
 
-
         [HttpPost] // api/products
-        public async Task<ActionResult> AddProductAsync([FromBody] ProductViewModel productViewModel)
+        //If there was views, we can use view models instead of dto. Same for UpdateProductAsync.
+        public async Task<ActionResult> AddProductAsync([FromBody] ProductDTO productDTO)
         {
-            var validator = new ProductViewModelValidator();
-            var validationResult = validator.Validate(productViewModel);
+            var validator = new ProductDTOValidator();
+            var validationResult = validator.Validate(productDTO);
             if (validationResult.IsValid)
             {
-                var productDTO = _mapper.Map<ProductDTO>(productViewModel);
                 var response = await _productService.AddProductAsync(productDTO);
                 if (response.Success)
                 {
@@ -84,18 +79,17 @@ namespace ProductManagement.Controllers
                 return BadRequest(response);
             }
 
-            var errors = ErrorResponse.ToErrorResult(validationResult.Errors);
+            var errors = ErrorResponse.ToErrorResponse(validationResult.Errors);
             return BadRequest(errors);
         }
 
         [HttpPut("{id}")] // api/products/3
-        public async Task<ActionResult> UpdateProductAsync(int id, [FromBody] ProductViewModel productViewModel)
+        public async Task<ActionResult> UpdateProductAsync(int id, [FromBody] ProductDTO productDTO)
         {
-            var validator = new ProductViewModelValidator();
-            var validationResult = validator.Validate(productViewModel);
+            var validator = new ProductDTOValidator();
+            var validationResult = validator.Validate(productDTO);
             if (validationResult.IsValid)
             {
-                var productDTO = _mapper.Map<ProductDTO>(productViewModel);
                 var response = await _productService.UpdateProductAsync(id, productDTO);
                 if (response.Success)
                 {
@@ -107,7 +101,7 @@ namespace ProductManagement.Controllers
                 return BadRequest(response);
             }
 
-            var errors = ErrorResponse.ToErrorResult(validationResult.Errors);
+            var errors = ErrorResponse.ToErrorResponse(validationResult.Errors);
             return BadRequest(errors);
         }
 
