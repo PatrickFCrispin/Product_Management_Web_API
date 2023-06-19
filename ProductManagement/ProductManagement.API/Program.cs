@@ -26,7 +26,6 @@ var mapperConfiguration = new MapperConfiguration(cfg =>
 });
 IMapper mapper = mapperConfiguration.CreateMapper();
 builder.Services.AddSingleton(mapper);
-
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
