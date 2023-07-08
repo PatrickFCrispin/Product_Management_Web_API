@@ -1,5 +1,4 @@
 # Product_Management_Web_API
-
 Projeto Web-API desenvolvido em .NET 6.0, utilizando DDD, EF (Entity Framework) e banco SQL Server (mssql).
 
 ## Description
