@@ -6,19 +6,12 @@ Trata-se de um design para desenvolvimento de software guiado pelo domínio. Nã
 É muito comum ao falar em DDD, falar de suas camadas. 
 
 Temos 4 principais camadas:
-Apresentação - camada de UI. Conhece todas as outras camadas.
-Aplicação - camada com os controladores e os serviços. Conhece as camadas de domínio e infra.
+Apresentação - camada de UI e de interação do cliente. 
+Aplicação - camada de aplcicação. Aqui são criados os contratos (interfaces), serviços da aplicação, dtos, mapper, etc. Conhece as camadas de domínio e infra.
 Domínio - camada de negócio. Aqui ficam as entidades do modelo, os contratos (interfaces) e a regra de negócio. Não conhece nenhuma outra camada além dela.
 Infra - camada de persistência. Aqui fica o repositório onde são feitas as persistências dos dados no banco. Conhece o domínio.
 
-Em vários materiais pesquisados sobre DDD, achei implementações com a camada de Apresentação e sem. 
-Pelo que vi, a camada de Apresentação é utilizada quando existe a interação com o usuário/cliente, ou seja, telas (Web, mobile, desktop, etc), porém 
-achei também materiais que tinha APIs nesta camada. 
-Como o foco do DDD é no domínio, optei por seguir o material abaixo que fala sobre micro serviços e web api, e mantive a API na camada de aplicação 
-juntamente com os controladores e serviços, porém como informei a API pode ser encontrada também na camada de Apresentação.
-
 Referência:
-https://enlabsoftware.com/development/domain-driven-design-in-asp-net-core-applications.html
 https://learn.microsoft.com/pt-br/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/microservice-domain-model
 https://blog.gft.com/br/2022/06/14/ddd-domain-driven-design-na-pratica/
 https://medium.com/beelabacademy/implementando-na-pr%C3%A1tica-rest-api-com-conceitos-de-ddd-net-core-sql-no-docker-ioc-2cb3a2e7c649
