@@ -1,7 +1,0 @@
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.API\obj\Debug\net6.0\ProductManagement.Presentation.csproj.AssemblyReference.cache
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.API\obj\Debug\net6.0\ProductManagement.Presentation.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.API\obj\Debug\net6.0\ProductManagement.Presentation.AssemblyInfoInputs.cache
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.API\obj\Debug\net6.0\ProductManagement.Presentation.AssemblyInfo.cs
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.API\obj\Debug\net6.0\ProductManagement.Presentation.csproj.CoreCompileInputs.cache
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.API\obj\Debug\net6.0\ProductManagement.Presentation.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.API\obj\Debug\net6.0\ProductManagement.Presentation.MvcApplicationPartsAssemblyInfo.cache
