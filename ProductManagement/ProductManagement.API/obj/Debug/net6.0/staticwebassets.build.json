@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "1gu1NQ1tJumqN4LcHhjkdtPtQV9FIwPCKXG89NcK4y4=",
-  "Source": "ProductManagement.API",
-  "BasePath": "_content/ProductManagement.API",
+  "Hash": "b3Dr+pQ6+apsoSLFS/x9FSWquVDZIawOQbw1d5YyDXc=",
+  "Source": "ProductManagement.WebApi",
+  "BasePath": "_content/ProductManagement.WebApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

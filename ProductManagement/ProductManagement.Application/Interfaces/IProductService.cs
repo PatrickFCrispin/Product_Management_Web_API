@@ -1,7 +1,7 @@
-﻿using ProductManagement.API.DTOs;
-using ProductManagement.API.Responses;
+﻿using ProductManagement.Application.DTOs;
+using ProductManagement.Application.Responses;
 
-namespace ProductManagement.API.Services
+namespace ProductManagement.Application.Interfaces
 {
     public interface IProductService
     {

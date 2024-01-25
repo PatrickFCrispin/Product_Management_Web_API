@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q828NOAtQqSn/IW+A92rs49lItC1t3bE+YLfGQzkv5DtTXNMROD3URq4MAEp16lXujVXhPiNtiXNMXyLBlyZhA==",
+  "dgSpecHash": "2SUs648Z00iwERug3ehLR7sso54kc3hWBTgpQ2zZCRcXQT/eP5n0ps04Z1siLMSFfMdAZdtTaxdHDoJZx502bQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Patri\\OneDrive\\Área de Trabalho\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj",
+  "projectFilePath": "C:\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Domain\\ProductManagement.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

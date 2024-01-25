@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace ProductManagement.API.DTOs
+namespace ProductManagement.Application.DTOs
 {
     public class ProductDTO
     {

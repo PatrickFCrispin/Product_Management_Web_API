@@ -1,7 +1,8 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using ProductManagement.API.DTOs;
-using ProductManagement.API.Services;
+using ProductManagement.Application.DTOs;
+using ProductManagement.Application.Interfaces;
+using ProductManagement.Application.Services;
 using ProductManagement.Domain.Entities;
 using ProductManagement.Domain.Interfaces;
 using ProductManagement.Infra.Context;
@@ -18,7 +19,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddEntityFrameworkSqlServer()
     .AddDbContext<ProductManagementDbContext>(x => x.UseSqlServer(
-        builder.Configuration.GetConnectionString("SqlServerConnectionString"), y => y.MigrationsAssembly("ProductManagement.API")));
+        builder.Configuration.GetConnectionString("SqlServerConnectionString"), y => y.MigrationsAssembly("ProductManagement.WebApi")));
 
 var mapperConfiguration = new MapperConfiguration(cfg =>
 {

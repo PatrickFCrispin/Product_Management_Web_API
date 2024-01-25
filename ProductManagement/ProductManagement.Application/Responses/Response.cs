@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 
-namespace ProductManagement.API.Responses
+namespace ProductManagement.Application.Responses
 {
     public class ServiceResponse<T> : GenericResponse
     {

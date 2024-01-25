@@ -62,7 +62,7 @@
           }
         }
       },
-      "FluentValidation/11.5.2": {
+      "FluentValidation/11.9.0": {
         "type": "package",
         "compile": {
           "lib/net6.0/FluentValidation.dll": {
@@ -1280,6 +1280,20 @@
           }
         }
       },
+      "ProductManagement.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "FluentValidation": "11.9.0",
+          "ProductManagement.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ProductManagement.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProductManagement.Application.dll": {}
+        }
+      },
       "ProductManagement.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1362,16 +1376,16 @@
         "lib/netstandard2.0/Azure.Identity.xml"
       ]
     },
-    "FluentValidation/11.5.2": {
-      "sha512": "kj/hW/iusp2zq1Vt1YPLgDj6UG0DhoJXGkLwjLwm3j7vUtRF8DVA5vHJfItG3BxDjLWJUR2pvw8fK7rnuysZNA==",
+    "FluentValidation/11.9.0": {
+      "sha512": "VneVlTvwYDkfHV5av3QrQ0amALgrLX6LV94wlYyEsh0B/klJBW7C8y2eAtj5tOZ3jH6CAVpr4s1ZGgew/QWyig==",
       "type": "package",
-      "path": "fluentvalidation/11.5.2",
+      "path": "fluentvalidation/11.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
         "fluent-validation-icon.png",
-        "fluentvalidation.11.5.2.nupkg.sha512",
+        "fluentvalidation.11.9.0.nupkg.sha512",
         "fluentvalidation.nuspec",
         "lib/net5.0/FluentValidation.dll",
         "lib/net5.0/FluentValidation.xml",
@@ -1379,6 +1393,8 @@
         "lib/net6.0/FluentValidation.xml",
         "lib/net7.0/FluentValidation.dll",
         "lib/net7.0/FluentValidation.xml",
+        "lib/net8.0/FluentValidation.dll",
+        "lib/net8.0/FluentValidation.xml",
         "lib/netstandard2.0/FluentValidation.dll",
         "lib/netstandard2.0/FluentValidation.xml",
         "lib/netstandard2.1/FluentValidation.dll",
@@ -3817,6 +3833,11 @@
         "version.txt"
       ]
     },
+    "ProductManagement.Application/1.0.0": {
+      "type": "project",
+      "path": "../ProductManagement.Application/ProductManagement.Application.csproj",
+      "msbuildProject": "../ProductManagement.Application/ProductManagement.Application.csproj"
+    },
     "ProductManagement.Domain/1.0.0": {
       "type": "project",
       "path": "../ProductManagement.Domain/ProductManagement.Domain.csproj",
@@ -3831,24 +3852,25 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper >= 12.0.1",
-      "FluentValidation >= 11.5.2",
+      "FluentValidation >= 11.9.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.1",
+      "ProductManagement.Application >= 1.0.0",
       "ProductManagement.Infra >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Patri\\.nuget\\packages\\": {},
+    "C:\\nuget": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Patri\\OneDrive\\Área de Trabalho\\Product_Management_Web_API\\ProductManagement\\ProductManagement.API\\ProductManagement.API.csproj",
-      "projectName": "ProductManagement.API",
-      "projectPath": "C:\\Users\\Patri\\OneDrive\\Área de Trabalho\\Product_Management_Web_API\\ProductManagement\\ProductManagement.API\\ProductManagement.API.csproj",
-      "packagesPath": "C:\\Users\\Patri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Patri\\OneDrive\\Área de Trabalho\\Product_Management_Web_API\\ProductManagement\\ProductManagement.API\\obj\\",
+      "projectUniqueName": "C:\\Product_Management_Web_API\\ProductManagement\\ProductManagement.API\\ProductManagement.WebApi.csproj",
+      "projectName": "ProductManagement.WebApi",
+      "projectPath": "C:\\Product_Management_Web_API\\ProductManagement\\ProductManagement.API\\ProductManagement.WebApi.csproj",
+      "packagesPath": "C:\\nuget",
+      "outputPath": "C:\\Product_Management_Web_API\\ProductManagement\\ProductManagement.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3864,15 +3886,18 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://pkgs.dev.azure.com/m3sistemas/_packaging/M3_Libs/nuget/v3/index.json": {}
+        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Patri\\OneDrive\\Área de Trabalho\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj": {
-              "projectPath": "C:\\Users\\Patri\\OneDrive\\Área de Trabalho\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj"
+            "C:\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Application\\ProductManagement.Application.csproj": {
+              "projectPath": "C:\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Application\\ProductManagement.Application.csproj"
+            },
+            "C:\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj": {
+              "projectPath": "C:\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Infra\\ProductManagement.Infra.csproj"
             }
           }
         }
@@ -3893,7 +3918,7 @@
           },
           "FluentValidation": {
             "target": "Package",
-            "version": "[11.5.2, )"
+            "version": "[11.9.0, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -3925,7 +3950,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

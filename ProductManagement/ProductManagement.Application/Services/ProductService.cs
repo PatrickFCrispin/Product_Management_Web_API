@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
-using ProductManagement.API.DTOs;
-using ProductManagement.API.Responses;
+using ProductManagement.Application.DTOs;
+using ProductManagement.Application.Interfaces;
+using ProductManagement.Application.Responses;
 using ProductManagement.Domain.Entities;
 using ProductManagement.Domain.Interfaces;
 
-namespace ProductManagement.API.Services
+namespace ProductManagement.Application.Services
 {
     public class ProductService : IProductService
     {

@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-using ProductManagement.API.DTOs;
-using ProductManagement.API.Responses;
-using ProductManagement.API.Services;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProductManagement.Application.DTOs;
+using ProductManagement.Application.Interfaces;
+using ProductManagement.Application.Responses;
 
-namespace ProductManagement.Controllers
+namespace ProductManagement.WebApi.Controllers
 {
     [ApiController]
     [Route("api/products")]
@@ -31,7 +31,7 @@ namespace ProductManagement.Controllers
                 }
 
                 _logger.LogInformation(
-                    "GetProductById::Info -> Id {id}, Nome {name}, Pre�o {price}, Fornecedor {supplier}, Ativo {active}, Cadastrado em {registeredAt}, Editado em {modifiedAt}",
+                    "GetProductById::Info -> Id {id}, Nome {name}, Preço {price}, Fornecedor {supplier}, Ativo {active}, Cadastrado em {registeredAt}, Editado em {modifiedAt}",
                     response.Data.Id,
                     response.Data.Name,
                     response.Data.Price,
