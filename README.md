@@ -14,7 +14,7 @@ Trata-se de um CRUD de Gerenciamento de Produto, onde é possível adicionar pro
     - Em "appsettings.json" atualizar os valores da config com os dados do seu banco de dados SQL Server (Server, User Id, Password).
     - Abrir Tools > NuGet Package Manager > Package Manager Console
 	- Entrar com o comando "add-migration ProductManagement -context ProductManagementDbContext"
-		- Espere realizar a criação do Migrations.
+   		- Espere realizar a criação do Migrations.
 	- Entrar com o comando "update-database"
 	        - Espere realizar a atualização do Migrations e mapeamento com o seu SQL Server Management Studio.
 
