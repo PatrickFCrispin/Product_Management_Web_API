@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductManagement.Infra", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductManagement.Application", "ProductManagement.Application\ProductManagement.Application.csproj", "{91141BD3-4CAE-4C48-ABFC-602E88968232}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.WebApi", "ProductManagement.WebApi\ProductManagement.WebApi.csproj", "{44CF6560-714E-41A3-86D2-0F3A11D8F91D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductManagement.WebApi", "ProductManagement.WebApi\ProductManagement.WebApi.csproj", "{44CF6560-714E-41A3-86D2-0F3A11D8F91D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{07E366C3-5509-4228-9354-D17100DAF258}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Users\Patri\OneDrive\Área de Trabalho\Product_Management_collection.json = ..\..\Users\Patri\OneDrive\Área de Trabalho\Product_Management_collection.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
