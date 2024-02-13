@@ -22,42 +22,42 @@ namespace ProductManagement.WebApi.Controllers
         public ActionResult GetProductById(int id)
         {
             var response = _productService.GetProductById(id);
-            if (response.Success)
+            if (!response.Success)
             {
-                if (response.Data is null)
-                {
-                    _logger.LogInformation("GetProductById::Info -> {message}", response.Message);
-                    return NotFound(response);
-                }
-
-                _logger.LogInformation(
-                    "GetProductById::Info -> Id {id}, Nome {name}, Preço {price}, Fornecedor {supplier}, Ativo {active}, Cadastrado em {registeredAt}, Editado em {modifiedAt}",
-                    response.Data.Id,
-                    response.Data.Name,
-                    response.Data.Price,
-                    response.Data.Supplier,
-                    response.Data.Active,
-                    response.Data.RegisteredAt,
-                    response.Data.ModifiedAt);
-                return Ok(response);
+                _logger.LogError("GetProductById::Error -> {error}", response.Message);
+                return BadRequest(response);
             }
 
-            _logger.LogError("GetProductById::Error -> {error}", response.Message);
-            return BadRequest(response);
+            if (response.Data is null)
+            {
+                _logger.LogInformation("GetProductById::Info -> {message}", response.Message);
+                return NotFound(response);
+            }
+
+            _logger.LogInformation(
+                "GetProductById::Info -> Id {id}, Nome {name}, Preço {price}, Fornecedor {supplier}, Ativo {active}, Cadastrado em {registeredAt}, Editado em {modifiedAt}",
+                response.Data.Id,
+                response.Data.Name,
+                response.Data.Price,
+                response.Data.Supplier,
+                response.Data.Active,
+                response.Data.RegisteredAt,
+                response.Data.ModifiedAt);
+            return Ok(response);
         }
 
         [HttpGet] // api/products
         public ActionResult GetProducts()
         {
             var response = _productService.GetProducts();
-            if (response.Success)
+            if (!response.Success)
             {
-                _logger.LogInformation("GetProducts::Info -> Quantidade de produtos cadastrados {count}", response.Data!.ToList().Count);
-                return Ok(response);
+                _logger.LogError("GetProducts::Error -> {error}", response.Message);
+                return BadRequest(response);
             }
 
-            _logger.LogError("GetProducts::Error -> {error}", response.Message);
-            return BadRequest(response);
+            _logger.LogInformation("GetProducts::Info -> Quantidade de produtos cadastrados {count}", response.Data!.ToList().Count);
+            return Ok(response);
         }
 
         [HttpPost] // api/products
@@ -66,21 +66,21 @@ namespace ProductManagement.WebApi.Controllers
         {
             var validator = new ProductDTOValidator();
             var validationResult = validator.Validate(productDTO);
-            if (validationResult.IsValid)
+            if (!validationResult.IsValid)
             {
-                var response = await _productService.AddProductAsync(productDTO);
-                if (response.Success)
-                {
-                    _logger.LogInformation("AddProductAsync::Info -> {message}", response.Message);
-                    return Ok(response);
-                }
+                var errors = validationResult.Errors.ToErrorResponse();
+                return BadRequest(errors);
+            }
 
+            var response = await _productService.AddProductAsync(productDTO);
+            if (!response.Success)
+            {
                 _logger.LogError("AddProductAsync::Error -> {error}", response.Message);
                 return BadRequest(response);
             }
 
-            var errors = validationResult.Errors.ToErrorResponse();
-            return BadRequest(errors);
+            _logger.LogInformation("AddProductAsync::Info -> {message}", response.Message);
+            return Ok(response);
         }
 
         [HttpPut("{id}")] // api/products/3
@@ -88,35 +88,35 @@ namespace ProductManagement.WebApi.Controllers
         {
             var validator = new ProductDTOValidator();
             var validationResult = validator.Validate(productDTO);
-            if (validationResult.IsValid)
+            if (!validationResult.IsValid)
             {
-                var response = await _productService.UpdateProductAsync(id, productDTO);
-                if (response.Success)
-                {
-                    _logger.LogInformation("UpdateProductAsync::Info -> {message}", response.Message);
-                    return Ok(response);
-                }
+                var errors = validationResult.Errors.ToErrorResponse();
+                return BadRequest(errors);
+            }
 
+            var response = await _productService.UpdateProductAsync(id, productDTO);
+            if (!response.Success)
+            {
                 _logger.LogError("UpdateProductAsync::Error -> {error}", response.Message);
                 return BadRequest(response);
             }
 
-            var errors = validationResult.Errors.ToErrorResponse();
-            return BadRequest(errors);
+            _logger.LogInformation("UpdateProductAsync::Info -> {message}", response.Message);
+            return Ok(response);
         }
 
         [HttpDelete("{id}")] // api/products/3
         public async Task<ActionResult> RemoveProductByIdAsync(int id)
         {
             var response = await _productService.RemoveProductByIdAsync(id);
-            if (response.Success)
+            if (!response.Success)
             {
-                _logger.LogInformation("RemoveProductByIdAsync::Info -> {message}", response.Message);
-                return Ok(response);
+                _logger.LogError("RemoveProductByIdAsync::Error -> {error}", response.Message);
+                return BadRequest(response);
             }
 
-            _logger.LogError("RemoveProductByIdAsync::Error -> {error}", response.Message);
-            return BadRequest(response);
+            _logger.LogInformation("RemoveProductByIdAsync::Info -> {message}", response.Message);
+            return Ok(response);
         }
     }
 }
