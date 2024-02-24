@@ -49,23 +49,6 @@ C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductMana
 C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.pdb
 C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.genruntimeconfig.cache
 C:\Users\Patri\OneDrive\Documentos\Desenv\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ref\ProductManagement.Infra.dll
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.deps.json
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.runtimeconfig.json
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.dll
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.pdb
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Domain.dll
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Domain.pdb
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.csproj.AssemblyReference.cache
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.AssemblyInfoInputs.cache
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.AssemblyInfo.cs
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.csproj.CoreCompileInputs.cache
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.csproj.CopyComplete
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.dll
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\refint\ProductManagement.Infra.dll
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.pdb
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.genruntimeconfig.cache
-C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ref\ProductManagement.Infra.dll
 C:\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.deps.json
 C:\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.runtimeconfig.json
 C:\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.dll
@@ -83,3 +66,20 @@ C:\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debu
 C:\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.pdb
 C:\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.genruntimeconfig.cache
 C:\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ref\ProductManagement.Infra.dll
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.deps.json
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.runtimeconfig.json
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.dll
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Infra.pdb
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Domain.dll
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\bin\Debug\net6.0\ProductManagement.Domain.pdb
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.csproj.AssemblyReference.cache
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.AssemblyInfoInputs.cache
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.AssemblyInfo.cs
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.csproj.CoreCompileInputs.cache
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.csproj.CopyComplete
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.dll
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\refint\ProductManagement.Infra.dll
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.pdb
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ProductManagement.Infra.genruntimeconfig.cache
+C:\Users\Patri\OneDrive\Área de Trabalho\Product_Management_Web_API\ProductManagement\ProductManagement.Infra\obj\Debug\net6.0\ref\ProductManagement.Infra.dll

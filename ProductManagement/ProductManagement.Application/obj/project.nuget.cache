@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fziC+XcQAGO4n0Ub51A9i0fnYHcMbMapNTme+F7yfMDB5oOhBxvbQAzfmgUW1DEIJGzIjC7B27mpUBpe/246aw==",
+  "dgSpecHash": "jmqwHAKl21Gs4iV0JEwZ++WLprwn6ITI7LRrToOuaTxrEL4LRETT2ec3Yen/ySX6KnvWvY/S/mDS68z0aH5+Ig==",
   "success": true,
-  "projectFilePath": "C:\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Application\\ProductManagement.Application.csproj",
+  "projectFilePath": "C:\\Users\\Patri\\OneDrive\\Área de Trabalho\\Product_Management_Web_API\\ProductManagement\\ProductManagement.Application\\ProductManagement.Application.csproj",
   "expectedPackageFiles": [
     "C:\\nuget\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512"
   ],

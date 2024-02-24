@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductManagement.WebApi", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{07E366C3-5509-4228-9354-D17100DAF258}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\Users\Patri\OneDrive\Área de Trabalho\Product_Management_collection.json = ..\..\Users\Patri\OneDrive\Área de Trabalho\Product_Management_collection.json
+		..\..\Insomnia_product_management_api = ..\..\Insomnia_product_management_api
 	EndProjectSection
 EndProject
 Global

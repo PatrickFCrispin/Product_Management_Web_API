@@ -6,7 +6,7 @@ using ProductManagement.Application.Responses;
 namespace ProductManagement.WebApi.Controllers
 {
     [ApiController]
-    [Route("api/products")]
+    [Route("products")]
     public class ProductManagementController : Controller
     {
         private readonly IProductService _productService;
@@ -18,7 +18,7 @@ namespace ProductManagement.WebApi.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")] // api/products/3
+        [HttpGet("{id}")] // api/products/id
         public ActionResult GetProductById(int id)
         {
             var response = _productService.GetProductById(id);
@@ -83,7 +83,7 @@ namespace ProductManagement.WebApi.Controllers
             return Ok(response);
         }
 
-        [HttpPut("{id}")] // api/products/3
+        [HttpPatch("{id}")] // api/products/id
         public async Task<ActionResult> UpdateProductAsync(int id, [FromBody] ProductDTO productDTO)
         {
             var validator = new ProductDTOValidator();
@@ -105,7 +105,7 @@ namespace ProductManagement.WebApi.Controllers
             return Ok(response);
         }
 
-        [HttpDelete("{id}")] // api/products/3
+        [HttpDelete("{id}")] // api/products/id
         public async Task<ActionResult> RemoveProductByIdAsync(int id)
         {
             var response = await _productService.RemoveProductByIdAsync(id);
