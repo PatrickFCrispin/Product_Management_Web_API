@@ -15,72 +15,52 @@ namespace ProductManagement.Infra.Repositories
 
         public ProductEntity? GetProductById(int id)
         {
-            try
-            {
-                return _productManagementDbContext.Products.FirstOrDefault(x => x.Id == id);
-            }
-            catch (Exception) { throw; }
+            return _productManagementDbContext.Products.FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<ProductEntity> GetProducts()
         {
-            try
-            {
-                return _productManagementDbContext.Products;
-            }
-            catch (Exception) { throw; }
+            return _productManagementDbContext.Products;
         }
 
         public async Task AddProductAsync(ProductEntity productEntity)
         {
-            try
-            {
-                productEntity.Active = true;
-                productEntity.RegisteredAt = productEntity.ModifiedAt = DateTime.Now;
+            productEntity.Active = true;
+            productEntity.RegisteredAt = productEntity.ModifiedAt = DateTime.Now;
 
-                _productManagementDbContext.Products.Add(productEntity);
+            _productManagementDbContext.Products.Add(productEntity);
 
-                await _productManagementDbContext.SaveChangesAsync();
-            }
-            catch (Exception) { throw; }
+            await _productManagementDbContext.SaveChangesAsync();
         }
 
         public async Task<bool> UpdateProductAsync(int id, ProductEntity productEntity)
         {
-            try
-            {
-                var product = GetProductById(id);
-                if (product is null) { return false; }
+            var product = GetProductById(id);
+            if (product is null) { return false; }
 
-                product.Name = productEntity.Name;
-                product.Price = productEntity.Price;
-                product.Supplier = productEntity.Supplier;
-                product.Active = productEntity.Active;
-                product.ModifiedAt = DateTime.Now;
+            product.Name = productEntity.Name;
+            product.Price = productEntity.Price;
+            product.Supplier = productEntity.Supplier;
+            product.Active = productEntity.Active;
+            product.ModifiedAt = DateTime.Now;
 
-                _productManagementDbContext.Products.Update(product);
+            _productManagementDbContext.Products.Update(product);
 
-                await _productManagementDbContext.SaveChangesAsync();
+            await _productManagementDbContext.SaveChangesAsync();
 
-                return true;
-            }
-            catch (Exception) { throw; }
+            return true;
         }
 
         public async Task<bool> RemoveProductByIdAsync(int id)
         {
-            try
-            {
-                var product = GetProductById(id);
-                if (product is null) { return false; }
+            var product = GetProductById(id);
+            if (product is null) { return false; }
 
-                _productManagementDbContext.Products.Remove(product);
+            _productManagementDbContext.Products.Remove(product);
 
-                await _productManagementDbContext.SaveChangesAsync();
+            await _productManagementDbContext.SaveChangesAsync();
 
-                return true;
-            }
-            catch (Exception) { throw; }
+            return true;
         }
     }
 }
